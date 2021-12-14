@@ -223,19 +223,28 @@ function playerNumbers(teamName) {
 // console.log(playerNumbers('Brooklyn Nets'))
 
 function playerStats(playerName) {
-    // console.log(playerName)
-    // let playerStatsObject = {}
     for (let team of teams) {
-        // console.log(team)
-        // console.log(team.players)
-        // console.log(team.players[playerName])
         if (team.players[playerName]) {
             return team.players[playerName]
         }
     }
 }
 
-console.log(playerStats('Alan Anderson'))
-console.log(playerStats('Brook Lopez'))
-console.log(playerStats('Bismak Biyombo'))
-console.log(playerStats('Brendan Haywood'))
+// console.log(playerStats('Alan Anderson'))
+// console.log(playerStats('Brook Lopez'))
+// console.log(playerStats('Bismak Biyombo'))
+// console.log(playerStats('Brendan Haywood'))
+
+function bigShoeRebounds() {
+    let bothTeamsStats = Object.values(player)
+    let shoes = []
+    for (let playerStats of bothTeamsStats) {
+        shoes.push(playerStats.shoe)
+        shoes.sort()
+        if (playerStats.shoe === shoes[shoes.length - 1]) {
+            return playerStats.rebounds
+        }
+    }
+}
+
+// console.log(bigShoeRebounds())
